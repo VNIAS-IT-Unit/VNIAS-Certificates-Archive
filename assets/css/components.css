@@ -140,7 +140,17 @@
   margin-bottom: var(--sp-4);
 }
 .footer-col ul { list-style: none; padding: 0; display: grid; gap: var(--sp-2); }
-.footer-col a { color: var(--text-2); font-size: var(--fs-sm); }
+.footer-col a {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  /* WCAG 2.2 AA (2.5.8) asks for 24×24 CSS px of pointer target. These are a
+     stacked list rather than links inside a sentence, so the inline exception
+     does not apply — at the natural 17px line box they are a genuinely awkward
+     tap on a phone, and the neighbouring link is 8px away. */
+  display: inline-block;
+  min-height: 24px;
+  padding-block: 3px;
+}
 .footer-col a:hover { color: var(--accent-text); }
 
 .footer-bottom {
@@ -277,7 +287,14 @@
 }
 .crumbs li { display: flex; align-items: center; gap: var(--sp-2); }
 .crumbs li + li::before { content: "/"; color: var(--border-strong); }
-.crumbs a { color: var(--text-3); }
+.crumbs a {
+  color: var(--text-3);
+  /* Same 24px rule. The breadcrumb is the primary way back on a phone, where
+     there is no persistent navigation, so it is worth the extra few pixels. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
 .crumbs a:hover { color: var(--accent-text); }
 .crumbs [aria-current] { color: var(--text-2); font-family: var(--font-mono); font-size: 0.72rem; }
 
