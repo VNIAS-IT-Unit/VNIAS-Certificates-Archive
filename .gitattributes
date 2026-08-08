@@ -1,0 +1,15 @@
+# The site is served from Linux (GitHub Pages), so the repository stays LF
+# regardless of who commits from Windows. Without this, every Windows commit
+# rewrites whole files with CRLF and the diffs become unreadable.
+* text=auto eol=lf
+
+# Binary assets must never be line-ending converted.
+*.png binary
+*.webp binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary

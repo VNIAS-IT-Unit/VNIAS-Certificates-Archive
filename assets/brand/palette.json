@@ -1,0 +1,14 @@
+{
+  "source": "main_logo.jpeg (official VNIAS logo)",
+  "sampled": {
+    "teal_core": "#0A6E8F",
+    "teal_mid": "#0C7A9C",
+    "teal_light": "#2C8CAB",
+    "lime_core": "#8AAA0A",
+    "lime_deep": "#5A6C0A",
+    "silver_light": "#D2D6DA",
+    "silver_mid": "#98A2A9",
+    "silver_dark": "#5A6268",
+    "ink": "#0B0F12"
+  }
+}

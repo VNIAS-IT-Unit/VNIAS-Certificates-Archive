@@ -1,0 +1,29 @@
+{
+  "by_category": {
+    "course": {
+      "certificates": 0,
+      "label": "Courses",
+      "projects": 0
+    },
+    "event": {
+      "certificates": 0,
+      "label": "Events",
+      "projects": 0
+    },
+    "session": {
+      "certificates": 0,
+      "label": "Sessions",
+      "projects": 0
+    },
+    "workshop": {
+      "certificates": 0,
+      "label": "Workshops",
+      "projects": 0
+    }
+  },
+  "categories_total": 4,
+  "certificates_total": 0,
+  "generated_at": "2026-08-07",
+  "projects_total": 0,
+  "years_covered": 1
+}

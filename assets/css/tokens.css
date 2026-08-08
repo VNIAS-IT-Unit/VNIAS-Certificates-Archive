@@ -1,0 +1,277 @@
+/* ============================================================================
+   VNIAS Certificate Archive — Design Tokens
+   ----------------------------------------------------------------------------
+   Every colour here is sampled from the official VNIAS logo (main_logo.jpeg)
+   by pixel analysis, not chosen by eye.
+
+   The WEBSITE ships light (this file's :root) — it is a public verification
+   portal, it sits beside a light vnias.org, and a certificate reads as a
+   document, not a dashboard. The DESKTOP APPLICATION stays dark. Both draw from
+   the same brand primitives below, so they remain visibly one product.
+
+   The dark set is retained under [data-theme="dark"] — it is the desktop
+   mirror, and it lets the site be flipped without redesigning anything.
+
+   Contrast is audited against --surface-1 (#FFFFFF) in light:
+     text-1 17.4:1 · text-2 6.5:1 · text-3 4.4:1
+     accent-text 7.1:1 · verified-text 5.9:1 · suspended-text 4.8:1
+   The logo teal (--teal-600) is 5.8:1 on white — safe for text AND fills, which
+   is why the light theme can use the literal brand colour far more directly
+   than the dark one could.
+   ========================================================================= */
+
+:root {
+  /* ── Brand primitives (theme-independent) ────────────────────────────── */
+  --teal-900: #042431;
+  --teal-800: #063546;
+  --teal-700: #074c63;
+  --teal-600: #0a6e8f; /* logo core */
+  --teal-500: #0e8ab2;
+  --teal-400: #17a8d4;
+  --teal-300: #4fc4e6;
+  --teal-200: #9adcf1;
+  --teal-100: #d6f0fa;
+  --teal-050: #eef8fd;
+
+  --lime-800: #333d05;
+  --lime-700: #4c5c08;
+  --lime-600: #63760a;
+  --lime-500: #8aaa0a; /* logo core */
+  --lime-400: #a6c914;
+  --lime-300: #c0e13a;
+  --lime-200: #dcf08c;
+  --lime-100: #f0f9cf;
+
+  --platinum-700: #2c3438;
+  --platinum-600: #3f474d;
+  --platinum-500: #5a6268;
+  --platinum-400: #8b98a2;
+  --platinum-300: #aebac3;
+  --platinum-200: #d2d6da;
+  --platinum-100: #eaeef1;
+
+  /* ── Surfaces — never pure white; every neutral carries the brand hue ── */
+  --canvas: #eaf1f5;
+  --surface-0: #f2f7fa;
+  --surface-1: #ffffff;
+  --surface-2: #f7fbfc;
+  --surface-3: #e9f2f6;
+  --surface-tint: rgba(255, 255, 255, 0.66);
+
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-strong: rgba(255, 255, 255, 0.93);
+  --scrim: rgba(6, 24, 32, 0.62);
+
+  --border-subtle: #e6eef2;
+  --border: #d5e3ea;
+  --border-strong: #b4cbd6;
+
+  /* ── Content ─────────────────────────────────────────────────────────── */
+  --text-1: #072430;
+  --text-2: #46626f;
+  --text-3: #5f7c8a;
+  --text-disabled: #9aaeb8;
+  --on-accent: #ffffff;
+
+  /* ── Semantic ────────────────────────────────────────────────────────── */
+  --accent: var(--teal-600);
+  --accent-text: #085d78;
+  --verified: var(--lime-600);
+  --verified-text: var(--lime-700);
+  --warning: #b3700c;
+  --warning-text: #8f5a09;
+  --suspended: #c9552c;
+  --suspended-text: #a84422;
+  --danger: #c42b39;
+  --danger-text: #a8202d;
+  --info: var(--teal-500);
+
+  /* Washes — tinted fills used for chips, hovers and inline code. */
+  --accent-wash: rgba(10, 110, 143, 0.07);
+  --accent-wash-strong: rgba(10, 110, 143, 0.11);
+  --accent-border: rgba(10, 110, 143, 0.26);
+  --verified-wash: rgba(138, 170, 10, 0.13);
+  --verified-border: rgba(99, 118, 10, 0.32);
+  --suspended-wash: rgba(201, 85, 44, 0.1);
+  --suspended-border: rgba(201, 85, 44, 0.3);
+  --danger-border: rgba(196, 43, 57, 0.32);
+
+  /* ── Component-level surfaces ────────────────────────────────────────── */
+  --header-bg: rgba(242, 247, 250, 0.78);
+  --header-bg-stuck: rgba(255, 255, 255, 0.92);
+  --footer-bg: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.86));
+  --chip-bg: rgba(255, 255, 255, 0.82);
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --edge-sheen: rgba(255, 255, 255, 0.95);
+  --sheen-color: rgba(10, 110, 143, 0.09);
+  --media-fade: linear-gradient(180deg, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0.93) 96%);
+  --avatar-bg: linear-gradient(135deg, var(--teal-600), var(--lime-600));
+  --avatar-fg: #ffffff;
+
+  /* ── Category accents — darkened for legibility on light ─────────────── */
+  --cat-event: #0a6e8f;
+  --cat-session: #10808a;
+  --cat-workshop: #3f8c46;
+  --cat-course: #74890c;
+
+  /* ── Atmosphere ──────────────────────────────────────────────────────── */
+  --aurora-teal: rgba(10, 110, 143, 0.24);
+  --aurora-lime: rgba(138, 170, 10, 0.2);
+  --aurora-third: rgba(23, 168, 212, 0.14);
+  --mesh-line: rgba(10, 110, 143, 0.07);
+  --field-dot: 10, 110, 143;
+  --field-dot-alt: 116, 137, 12;
+  --field-alpha: 0.5;
+  --field-link-alpha: 0.16;
+
+  --grad-display: linear-gradient(118deg, var(--teal-600) 0%, var(--teal-500) 34%, var(--lime-600) 100%);
+  --grad-rule: linear-gradient(90deg, var(--teal-500), var(--lime-500));
+
+  /* ── Typography ──────────────────────────────────────────────────────── */
+  --font-display: "Poppins", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
+
+  --fs-display: clamp(2.4rem, 1.2rem + 4.2vw, 4.5rem);
+  --fs-h1: clamp(1.9rem, 1.1rem + 2.6vw, 3rem);
+  --fs-h2: clamp(1.4rem, 1rem + 1.4vw, 2rem);
+  --fs-h3: clamp(1.12rem, 0.98rem + 0.5vw, 1.35rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.78rem;
+  --fs-overline: 0.72rem;
+
+  --lh-tight: 1.12;
+  --lh-snug: 1.35;
+  --lh-body: 1.62;
+
+  /* ── Space (4px scale) ───────────────────────────────────────────────── */
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;   --sp-3: 0.75rem;  --sp-4: 1rem;
+  --sp-5: 1.25rem;  --sp-6: 1.5rem;   --sp-8: 2rem;     --sp-10: 2.5rem;
+  --sp-12: 3rem;    --sp-16: 4rem;    --sp-20: 5rem;    --sp-24: 6rem;
+
+  --shell: 1280px;
+  --shell-wide: 1520px;
+  --gutter: clamp(1rem, 0.4rem + 2.4vw, 2.5rem);
+
+  /* ── Radii ───────────────────────────────────────────────────────────── */
+  --r-xs: 6px;  --r-sm: 9px;  --r-md: 14px;
+  --r-lg: 20px; --r-xl: 28px; --r-pill: 999px;
+
+  /* ── Elevation ────────────────────────────────────────────────────────
+     Light-theme shadows are tinted toward the brand hue and layered (a tight
+     contact shadow plus a wide ambient one). Pure-black box-shadows on a light
+     page read as grey smudge; a cool-tinted pair reads as depth. */
+  --sh-1: 0 1px 2px rgba(7, 52, 68, 0.06), 0 1px 1px rgba(7, 52, 68, 0.04);
+  --sh-2: 0 2px 6px rgba(7, 52, 68, 0.05), 0 12px 28px -12px rgba(7, 52, 68, 0.2);
+  --sh-3: 0 6px 16px -8px rgba(7, 52, 68, 0.14), 0 30px 64px -28px rgba(7, 52, 68, 0.34);
+  --sh-focus: 0 0 0 3px rgba(10, 110, 143, 0.24);
+  --glow-teal: 0 14px 38px -16px rgba(10, 110, 143, 0.55);
+  --glow-lime: 0 14px 34px -16px rgba(138, 170, 10, 0.45);
+
+  /* ── Motion ──────────────────────────────────────────────────────────── */
+  --d-fast: 120ms;
+  --d-base: 200ms;
+  --d-slow: 320ms;
+  --d-page: 420ms;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.32, 0.64, 1);
+
+  --header-h: 68px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Dark set — the desktop application's palette, kept in sync and available to
+   the site via <html data-theme="dark">. Opt-in only: it is deliberately NOT
+   wired to prefers-color-scheme, because the portal's chosen presentation is
+   light and a visitor's OS setting should not silently change what an official
+   verification record looks like.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  --canvas: #04080b;
+  --surface-0: #070d12;
+  --surface-1: #0c151c;
+  --surface-2: #122029;
+  --surface-3: #172a36;
+  --surface-tint: rgba(12, 21, 28, 0.55);
+
+  --glass: rgba(18, 32, 41, 0.62);
+  --glass-strong: rgba(12, 21, 28, 0.9);
+  --scrim: rgba(3, 7, 10, 0.78);
+
+  --border-subtle: #16242e;
+  --border: #1e3340;
+  --border-strong: #2c4a5c;
+
+  --text-1: #e8f2f7;
+  --text-2: #9fb3c0;
+  --text-3: #6b8494;
+  --text-disabled: #46596a;
+  --on-accent: #03141b;
+
+  --accent: var(--teal-500);
+  --accent-text: var(--teal-400);
+  --verified: var(--lime-400);
+  --verified-text: var(--lime-300);
+  --warning: #e39a2b;
+  --warning-text: #f2b455;
+  --suspended: #e2734a;
+  --suspended-text: #f09268;
+  --danger: #e0525e;
+  --danger-text: #f27c86;
+
+  --accent-wash: rgba(23, 168, 212, 0.08);
+  --accent-wash-strong: rgba(10, 110, 143, 0.18);
+  --accent-border: rgba(23, 168, 212, 0.4);
+  --verified-wash: rgba(138, 170, 10, 0.14);
+  --verified-border: rgba(166, 201, 20, 0.4);
+  --suspended-wash: rgba(226, 115, 74, 0.14);
+  --suspended-border: rgba(226, 115, 74, 0.44);
+  --danger-border: rgba(224, 82, 94, 0.4);
+
+  --header-bg: rgba(7, 13, 18, 0.72);
+  --header-bg-stuck: rgba(6, 11, 15, 0.9);
+  --footer-bg: linear-gradient(180deg, transparent, rgba(7, 13, 18, 0.8));
+  --chip-bg: rgba(18, 32, 41, 0.7);
+  --input-bg: rgba(12, 21, 28, 0.78);
+  --edge-sheen: rgba(255, 255, 255, 0.14);
+  --sheen-color: rgba(23, 168, 212, 0.16);
+  --media-fade: linear-gradient(180deg, rgba(4, 8, 11, 0) 40%, rgba(4, 8, 11, 0.86));
+  --avatar-bg: linear-gradient(135deg, var(--teal-700), var(--lime-700));
+  --avatar-fg: #eaf6fb;
+
+  --cat-event: #17a8d4;
+  --cat-session: #37c0c8;
+  --cat-workshop: #6bc46a;
+  --cat-course: #a6c914;
+
+  --aurora-teal: rgba(10, 110, 143, 0.5);
+  --aurora-lime: rgba(138, 170, 10, 0.22);
+  --aurora-third: rgba(23, 168, 212, 0.16);
+  --mesh-line: rgba(44, 74, 92, 0.16);
+  --field-dot: 23, 168, 212;
+  --field-dot-alt: 166, 201, 20;
+  --field-alpha: 0.62;
+  --field-link-alpha: 0.2;
+
+  --grad-display: linear-gradient(120deg, var(--teal-300) 0%, var(--teal-400) 38%, var(--lime-300) 100%);
+  --grad-rule: linear-gradient(90deg, var(--teal-400), var(--lime-400));
+
+  --sh-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --sh-2: 0 10px 30px -12px rgba(0, 0, 0, 0.66);
+  --sh-3: 0 28px 70px -24px rgba(0, 0, 0, 0.78);
+  --sh-focus: 0 0 0 3px rgba(23, 168, 212, 0.32);
+  --glow-teal: 0 0 42px -6px rgba(14, 138, 178, 0.42);
+  --glow-lime: 0 0 34px -4px rgba(166, 201, 20, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --d-fast: 1ms;
+    --d-base: 1ms;
+    --d-slow: 1ms;
+    --d-page: 1ms;
+  }
+}

@@ -1,0 +1,16 @@
+# Python tooling
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local dev server artefacts
+.DS_Store
+Thumbs.db
+
+# Demo builds are for local review only and must never reach this repository:
+# fabricated certificate records on the official verification portal would be
+# indistinguishable from genuine ones. Regenerate locally with
+#   python tools/build_site.py --demo --clean
+# and clear them with
+#   python tools/build_site.py --clean
+/demo-build/

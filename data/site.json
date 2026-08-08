@@ -1,0 +1,48 @@
+{
+  "categories": [
+    {
+      "hex": "#17a8d4",
+      "icon": "i-calendar",
+      "id_code": "EV",
+      "key": "event",
+      "label_plural": "Events",
+      "label_singular": "Event",
+      "url_segment": "events"
+    },
+    {
+      "hex": "#37c0c8",
+      "icon": "i-mic",
+      "id_code": "SE",
+      "key": "session",
+      "label_plural": "Sessions",
+      "label_singular": "Session",
+      "url_segment": "sessions"
+    },
+    {
+      "hex": "#6bc46a",
+      "icon": "i-board",
+      "id_code": "WS",
+      "key": "workshop",
+      "label_plural": "Workshops",
+      "label_singular": "Workshop",
+      "url_segment": "workshops"
+    },
+    {
+      "hex": "#a6c914",
+      "icon": "i-book",
+      "id_code": "CO",
+      "key": "course",
+      "label_plural": "Courses",
+      "label_singular": "Course",
+      "url_segment": "courses"
+    }
+  ],
+  "generated_at": "2026-08-07",
+  "organization": {
+    "email": "vitanova.science@gmail.com",
+    "name": "VitaNova International Alliance for Sciences",
+    "short": "VNIAS",
+    "url": "https://vnias.org"
+  },
+  "schema": 1
+}

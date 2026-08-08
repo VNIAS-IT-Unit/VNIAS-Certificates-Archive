@@ -1,0 +1,374 @@
+/* ============================================================================
+   Page compositions — home, verify, category, project, certificate
+   ========================================================================= */
+
+/* ── Shared page head ──────────────────────────────────────────────────── */
+
+.page-head { padding-block: var(--sp-10) var(--sp-8); }
+.page-head .crumbs { margin-bottom: var(--sp-6); }
+.page-head h1 { margin-bottom: var(--sp-3); }
+.page-head .lede { max-width: 62ch; font-size: 1.05rem; color: var(--text-2); }
+
+/* ── Home hero ─────────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  padding-block: clamp(3.5rem, 2rem + 8vw, 8rem) clamp(3rem, 2rem + 4vw, 5rem);
+  text-align: center;
+}
+.hero-mark {
+  width: clamp(88px, 12vw, 128px);
+  margin: 0 auto var(--sp-6);
+  filter: drop-shadow(0 16px 28px rgba(7, 52, 68, 0.28));
+  animation: mark-float 9s ease-in-out infinite;
+}
+@keyframes mark-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.6deg); }
+}
+@media (prefers-reduced-motion: reduce) { .hero-mark { animation: none; } }
+
+.hero h1 {
+  font-size: var(--fs-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--sp-5);
+}
+.hero h1 .grad {
+  background: var(--grad-display);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero .lede {
+  max-width: 58ch;
+  margin: 0 auto var(--sp-8);
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.14rem);
+  color: var(--text-2);
+}
+
+/* The verification desk — the primary action on the site. */
+.desk { max-width: 620px; margin-inline: auto; }
+.desk .search { padding-left: var(--sp-5); box-shadow: var(--sh-2); }
+.desk .search input { font-size: 1rem; }
+.desk .btn { flex-shrink: 0; }
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: var(--sp-4);
+  max-width: 780px;
+  margin: var(--sp-12) auto 0;
+}
+
+/* ── Section headers ───────────────────────────────────────────────────── */
+
+.sec-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-8);
+}
+.sec-head .overline { display: block; margin-bottom: var(--sp-2); }
+.sec-head p { max-width: 52ch; color: var(--text-3); font-size: var(--fs-sm); margin-top: var(--sp-2); }
+
+/* ── Grids ─────────────────────────────────────────────────────────────── */
+
+.cat-grid {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+}
+
+.card-grid {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: repeat(auto-fill, minmax(296px, 1fr));
+}
+
+.roll {
+  display: grid;
+  gap: var(--sp-2);
+  grid-template-columns: repeat(auto-fill, minmax(336px, 1fr));
+}
+.roll-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-md);
+  background: var(--surface-1);
+  color: inherit;
+  transition: border-color var(--d-fast) var(--ease), background var(--d-fast) var(--ease),
+              transform var(--d-fast) var(--ease), box-shadow var(--d-fast) var(--ease);
+}
+.roll-item:hover {
+  border-color: var(--accent-border);
+  background: var(--accent-wash);
+  transform: translateX(3px);
+  box-shadow: var(--sh-1);
+  color: inherit;
+}
+.roll-item .idx {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-disabled);
+  min-width: 2.4ch;
+  text-align: right;
+}
+.roll-name { flex: 1; min-width: 0; font-size: var(--fs-sm); color: var(--text-1); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.roll-id { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-3); letter-spacing: 0.04em; }
+@media (max-width: 560px) { .roll-id { display: none; } }
+
+/* ── Project hero ──────────────────────────────────────────────────────────
+   Deliberately the one dark band on a light page. A full-bleed teal-washed
+   image behind white type gives the archive a focal moment and stops the
+   listing pages from reading as one continuous white sheet. */
+
+.project-hero {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--teal-900);
+  box-shadow: var(--sh-2);
+  margin-bottom: var(--sp-10);
+}
+.project-hero-media { position: absolute; inset: 0; }
+.project-hero-media img { width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+.project-hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(4, 36, 49, 0.42), rgba(4, 36, 49, 0.92)),
+    radial-gradient(70% 100% at 12% 0%, rgba(10, 110, 143, 0.55), transparent 70%);
+}
+.project-hero-body {
+  position: relative;
+  padding: clamp(1.75rem, 1rem + 3vw, 3.25rem);
+  display: grid;
+  gap: var(--sp-4);
+  min-height: 260px;
+  align-content: end;
+}
+.project-hero h1 { font-size: var(--fs-h1); max-width: 24ch; color: #f2fafd; }
+.project-hero .sub { font-size: 1.05rem; color: #c3dde8; max-width: 62ch; }
+.project-hero .chip {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #eaf7fc;
+  backdrop-filter: blur(6px);
+  width: fit-content;
+}
+.project-facts { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-6); font-size: var(--fs-sm); color: #a7c8d6; }
+.project-facts span { display: inline-flex; align-items: center; gap: 7px; }
+.project-facts svg { width: 15px; height: 15px; color: var(--lime-300); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   CERTIFICATE DETAIL — the centrepiece
+   ══════════════════════════════════════════════════════════════════════ */
+
+.cert-layout {
+  display: grid;
+  gap: clamp(1.5rem, 1rem + 3vw, 3.5rem);
+  grid-template-columns: minmax(0, 1.28fr) minmax(320px, 1fr);
+  align-items: start;
+}
+@media (max-width: 980px) { .cert-layout { grid-template-columns: 1fr; } }
+
+/* Frame ---------------------------------------------------------------- */
+
+/* Perspective is applied by a perspective() function inside the tilt transform
+   (certificate.js) rather than as a property here, so the 3D rendering context
+   exists only while the pointer is over the frame instead of for the life of
+   the page. Cheaper, and it keeps this wrapper a plain 2D box. */
+.cert-frame-wrap { position: relative; }
+
+.cert-frame {
+  position: relative;
+  padding: 10px;
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, var(--platinum-300) 0%, var(--platinum-500) 26%, var(--platinum-100) 50%, var(--platinum-500) 74%, var(--platinum-300) 100%);
+  box-shadow: var(--sh-3);
+  /* No `transition: transform`, no `preserve-3d`, no `will-change`. The tilt
+     tracks pointermove directly (already frame-rate smooth) and the return is
+     animated in JS via the Web Animations API, so this element is promoted to
+     its own compositing layer only for the ~320 ms it is actually moving
+     instead of permanently. */
+}
+.cert-frame::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: var(--r-sm);
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(7, 52, 68, 0.18);
+}
+.cert-frame img {
+  display: block;
+  width: 100%;
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  cursor: zoom-in;
+}
+.cert-frame .sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: var(--r-lg);
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.42), transparent 60%);
+  transition: opacity var(--d-base) var(--ease);
+}
+.cert-frame-wrap:hover .sheen { opacity: 1; }
+
+.cert-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-5); }
+
+/* Verdict -------------------------------------------------------------- */
+
+.verdict {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-5);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--verified-border);
+  background: linear-gradient(135deg, var(--verified-wash), var(--surface-1) 68%);
+  box-shadow: var(--sh-1);
+}
+.verdict h2 {
+  font-size: 1.24rem;
+  letter-spacing: 0.01em;
+  color: var(--verified-text);
+  margin-bottom: 3px;
+}
+.verdict p { font-size: var(--fs-sm); color: var(--text-2); }
+
+.verdict--suspended {
+  border-color: var(--suspended-border);
+  background: linear-gradient(135deg, var(--suspended-wash), var(--surface-1) 68%);
+}
+.verdict--suspended h2 { color: var(--suspended-text); }
+
+/* Suspension notice replaces the certificate image entirely. */
+.suspended-notice {
+  display: grid;
+  place-items: center;
+  gap: var(--sp-5);
+  padding: clamp(2.5rem, 1.5rem + 6vw, 5.5rem) var(--sp-6);
+  text-align: center;
+  border-radius: var(--r-sm);
+  background:
+    repeating-linear-gradient(135deg, var(--suspended-wash) 0 14px, transparent 14px 28px),
+    var(--surface-1);
+}
+.suspended-notice h2 { font-size: clamp(1.2rem, 0.9rem + 1.4vw, 1.75rem); color: var(--suspended-text); max-width: 22ch; }
+.suspended-notice p { font-size: var(--fs-sm); color: var(--text-3); max-width: 46ch; }
+
+/* Recipient ------------------------------------------------------------ */
+
+.cert-recipient { margin-top: var(--sp-8); }
+.cert-recipient .overline { display: block; margin-bottom: var(--sp-3); }
+.cert-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 1.1rem + 2.4vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.024em;
+  color: var(--text-1);
+  text-wrap: balance;
+}
+.cert-name::after {
+  content: "";
+  display: block;
+  width: 74px;
+  height: 2px;
+  margin-top: var(--sp-4);
+  border-radius: var(--r-pill);
+  background: var(--grad-rule);
+}
+
+.cert-id-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface-1);
+  box-shadow: var(--sh-1);
+}
+.cert-id-row code {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.07em;
+  color: var(--accent-text);
+  overflow-wrap: anywhere;
+}
+.copy-btn {
+  display: grid; place-items: center;
+  width: 34px; height: 34px;
+  flex-shrink: 0;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  color: var(--text-3);
+  transition: color var(--d-fast) var(--ease), border-color var(--d-fast) var(--ease),
+              background var(--d-fast) var(--ease);
+}
+.copy-btn:hover { color: var(--accent-text); border-color: var(--accent); background: var(--accent-wash); }
+.copy-btn svg { width: 16px; height: 16px; }
+
+/* Detail sections ------------------------------------------------------- */
+
+.cert-sections { margin-top: clamp(3rem, 2rem + 4vw, 5rem); display: grid; gap: var(--sp-10); }
+.cert-section > h2 {
+  font-size: 1.14rem;
+  letter-spacing: 0.01em;
+  margin-bottom: var(--sp-5);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.cert-section .prose { max-width: 72ch; color: var(--text-2); }
+.cert-section .prose p + p { margin-top: var(--sp-4); }
+
+.assurance {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+}
+.assurance-item { display: grid; gap: var(--sp-2); align-content: start; }
+.assurance-item h3 { font-size: var(--fs-sm); color: var(--text-1); display: flex; align-items: center; gap: var(--sp-2); }
+.assurance-item h3 svg { width: 17px; height: 17px; color: var(--verified); flex-shrink: 0; }
+.assurance-item p { font-size: var(--fs-xs); color: var(--text-3); line-height: 1.6; }
+
+/* ── About page ────────────────────────────────────────────────────────── */
+
+.prose-page { max-width: 72ch; }
+.prose-page h2 { margin-top: var(--sp-10); margin-bottom: var(--sp-4); font-size: var(--fs-h2); }
+.prose-page h3 { margin-top: var(--sp-6); margin-bottom: var(--sp-3); }
+.prose-page p, .prose-page li { color: var(--text-2); }
+.prose-page ul { padding-left: 1.15rem; display: grid; gap: var(--sp-2); }
+.prose-page li::marker { color: var(--accent); }
+
+/* ── 404 ───────────────────────────────────────────────────────────────── */
+
+.notfound { display: grid; place-items: center; gap: var(--sp-6); text-align: center; padding-block: clamp(4rem, 2rem + 10vw, 9rem); }
+.notfound .code {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 2rem + 12vw, 9rem);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--grad-display);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.9;
+}
